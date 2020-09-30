@@ -24,7 +24,7 @@ import org.w3c.dom.Element;
  */
 public class Scrittore {
 
-    public void scrivi(ArrayList<Contatto> rubrica, String nomeFile) {
+    public static void scrivi(ArrayList<Contatto> rubrica, String nomeFile) {
         try {
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
@@ -39,18 +39,19 @@ public class Scrittore {
                 Element cognome = document.createElement("cognome");
                 cognome.appendChild(document.createTextNode(c.getCognome()));
                 contatto.appendChild(cognome);
-                Element numero = document.createElement("numero");
+                Element numero = document.createElement("numero_telefono");
                 numero.appendChild(document.createTextNode(c.getNumero_telefono()));
                 contatto.appendChild(numero);
                 Element email = document.createElement("email");
                 email.appendChild(document.createTextNode(c.getEmail()));
                 contatto.appendChild(email);
+                root.appendChild(contatto);
+            }
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 DOMSource domSource = new DOMSource(document);
                 StreamResult streamResult = new StreamResult(new File(nomeFile));
                 transformer.transform(domSource, streamResult);
-            }
         } catch (ParserConfigurationException | TransformerException ex) {
         }
 

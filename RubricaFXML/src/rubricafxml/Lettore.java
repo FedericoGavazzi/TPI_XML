@@ -8,7 +8,6 @@ package rubricafxml;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,7 +24,8 @@ import org.xml.sax.SAXException;
  */
 public class Lettore {
 
-    public ArrayList<Contatto> carica(ArrayList<Contatto> rubrica, String nomeFile) {
+    public static ArrayList<Contatto> carica(String nomeFile) {
+            ArrayList<Contatto> rubrica = new ArrayList<>();
         try {
             File inputFile = new File(nomeFile);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();

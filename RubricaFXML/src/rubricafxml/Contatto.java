@@ -38,5 +38,18 @@ public class Contatto {
     public String getEmail() {
         return email;
     }
+    
+    public boolean nomeUguale(String nome){
+        return this.nome.equalsIgnoreCase(nome);
+    }
+    public boolean cognomeUguale(String cognome){
+        return this.cognome.equalsIgnoreCase(cognome);
+    }
 
+    @Override
+    public String toString() {
+        return nome + "    " + cognome + "     " + numero_telefono + "     " + email;
+    }
+    
+    
 }
