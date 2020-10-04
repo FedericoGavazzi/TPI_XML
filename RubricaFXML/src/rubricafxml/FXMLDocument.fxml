@@ -8,28 +8,58 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="631.0" prefWidth="554.0" style="-fx-background-color: #dadada;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="rubricafxml.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="631.0" prefWidth="554.0" style="-fx-background-color: #dadada;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rubricafxml.FXMLDocumentController">
     <children>
-      <ButtonBar layoutX="236.0" layoutY="87.0" prefHeight="40.0" prefWidth="327.0">
+      <ButtonBar fx:id="buttonBar" layoutX="213.0" layoutY="87.0" prefHeight="40.0" prefWidth="327.0" visible="false">
         <buttons>
           <Button fx:id="aggiungiBtn" mnemonicParsing="false" onAction="#aggiungiContatto" prefHeight="31.0" prefWidth="138.0" text="Aggiungi" />
               <Button fx:id="rimuoviBtn" onAction="#rimuoviContatto" text="Rimuovi" />
         </buttons>
       </ButtonBar>
-      <Label fx:id="titoloLbl" alignment="CENTER" layoutX="159.0" prefHeight="74.0" prefWidth="236.0" text="RUBRICA">
+      <Label fx:id="titoloLbl" alignment="CENTER" layoutX="159.0" prefHeight="74.0" prefWidth="236.0" text="RUBRICA" visible="false">
          <font>
             <Font name="System Bold Italic" size="51.0" />
          </font>
       </Label>
-      <TextField fx:id="ricercaTxt" layoutX="14.0" layoutY="91.0" onKeyTyped="#ricercaContatto" prefHeight="31.0" prefWidth="236.0" promptText="Ricerca..." />
-      <ScrollPane fx:id="contattiPane" layoutY="144.0" prefHeight="486.0" prefWidth="554.0">
+      <TextField fx:id="ricercaTxt" layoutX="11.0" layoutY="92.0" onKeyReleased="#ricercaContatto" prefHeight="31.0" prefWidth="236.0" promptText="Ricerca..." visible="false" />
+      <ScrollPane fx:id="contattiPane" layoutY="134.0" prefHeight="486.0" prefWidth="554.0" visible="false">
         <content>
-          <AnchorPane fx:id="paneInterno" minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="547.0">
+          <AnchorPane fx:id="paneInterno" minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="969.0">
                <children>
-                  <Label fx:id="labelContatti" alignment="TOP_LEFT" text="rubrica" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label fx:id="labelContatti" alignment="TOP_LEFT" prefHeight="2000.0" prefWidth="979.0" text="rubrica" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
+      <Button fx:id="addBtn" layoutX="130.0" layoutY="521.0" mnemonicParsing="false" onAction="#aggiungiNuovo" prefHeight="52.0" prefWidth="115.0" text="+" visible="false">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Button>
+      <Button fx:id="moinBtn" layoutX="130.0" layoutY="521.0" mnemonicParsing="false" onAction="#rimuoviPresente" prefHeight="57.0" prefWidth="115.0" text="-">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Button>
+      <TextField fx:id="nomeTxt" layoutX="131.0" layoutY="186.0" onKeyReleased="#ricercaContattoEliminazione" prefHeight="31.0" prefWidth="295.0" promptText="NOME" />
+      <TextField fx:id="cognomeTxt" layoutX="130.0" layoutY="259.0" onKeyTyped="#ricercaContattoEliminazione" prefHeight="31.0" prefWidth="295.0" promptText="COGNOME" visible="false" />
+      <TextField fx:id="numeroTxt" layoutX="131.0" layoutY="459.0" prefHeight="31.0" prefWidth="295.0" promptText="NUMERO DI TELEFONO" />
+      <TextField fx:id="emailTxt" layoutX="131.0" layoutY="400.0" prefHeight="31.0" prefWidth="295.0" promptText="EMAIL" visible="false" />
+      <Label fx:id="addLbl" alignment="TOP_CENTER" layoutX="136.0" layoutY="50.0" prefHeight="114.0" prefWidth="263.0" style="-fx-background-color: pink;" text=" AGGIUNGI  CONTATTO" textAlignment="CENTER" textOverrun="CLIP" visible="false" wrapText="true">
+         <font>
+            <Font name="System Bold" size="39.0" />
+         </font>
+      </Label>
+      <Button fx:id="backBtn" layoutX="302.0" layoutY="521.0" mnemonicParsing="false" onAction="#indietro" prefHeight="57.0" prefWidth="124.0" text="INDIETRO">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="removeLbl" alignment="CENTER" layoutX="131.0" layoutY="43.0" prefHeight="114.0" prefWidth="295.0" style="-fx-background-color: PINK;" text="RIMUOVI CONTATTO" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <Label fx:id="informationLbl" alignment="TOP_LEFT" layoutX="29.0" layoutY="221.0" prefHeight="227.0" prefWidth="501.0" text="Label" />
     </children>
 </AnchorPane>

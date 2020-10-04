@@ -20,7 +20,7 @@ import org.w3c.dom.Element;
 
 /**
  *
- * @author feder
+ * @author Federico Gavazzi, Michele Potettu
  */
 public class Scrittore {
 

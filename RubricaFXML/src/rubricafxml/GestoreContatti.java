@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author feder
+ * @author Federico Gavazzi, Michele Potettu
  */
 public class GestoreContatti {
     //salvataggi ricerca etc..
@@ -55,6 +55,14 @@ public class GestoreContatti {
         }
         return ricerca;
     }
+    
+    public Contatto ricercaNumero(String numero){
+        for(Contatto c : rubrica){
+            if(c.numeroUguale(numero))
+                return c;
+        }
+        return null;
+    }
 
     public ArrayList<Contatto> getRubrica() {
         return rubrica;
@@ -64,8 +72,9 @@ public class GestoreContatti {
         this.rubrica = rubrica;
     }
     
+    @Override
     public String toString(){
-        String s = "Nome     Cognome        Numero                 Email\n";
+        String s = " Nome     Cognome        Numero                 Email\n";
         for(Contatto c : rubrica)
             s+=c + "\n";
         return s;

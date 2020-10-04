@@ -7,7 +7,7 @@ package rubricafxml;
  */
 /**
  *
- * @author feder
+ * @author Federico Gavazzi, Michele Potettu
  */
 public class Contatto {
 
@@ -40,15 +40,21 @@ public class Contatto {
     }
     
     public boolean nomeUguale(String nome){
-        return this.nome.equalsIgnoreCase(nome);
+        return this.nome.equalsIgnoreCase(nome) || this.nome.contains(nome);
+            
     }
+    
     public boolean cognomeUguale(String cognome){
-        return this.cognome.equalsIgnoreCase(cognome);
+        return this.cognome.equalsIgnoreCase(cognome) || this.cognome.contains(cognome);
+    }
+    
+    public boolean numeroUguale (String numero){
+        return this.numero_telefono.equals(numero);
     }
 
     @Override
     public String toString() {
-        return nome + "    " + cognome + "     " + numero_telefono + "     " + email;
+        return " " + nome + "    " + cognome + "     " + numero_telefono + "     " + email;
     }
     
     

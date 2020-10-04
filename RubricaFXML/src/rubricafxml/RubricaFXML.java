@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author feder
+ * @author Federico Gavazzi, Michele Potettu
  */
 public class RubricaFXML extends Application {
     
@@ -24,6 +24,7 @@ public class RubricaFXML extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

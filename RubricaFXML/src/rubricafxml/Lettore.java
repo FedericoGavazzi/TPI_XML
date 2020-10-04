@@ -20,7 +20,7 @@ import org.xml.sax.SAXException;
 
 /**
  *
- * @author feder
+ * @author Federico Gavazzi, Michele Potettu
  */
 public class Lettore {
 
