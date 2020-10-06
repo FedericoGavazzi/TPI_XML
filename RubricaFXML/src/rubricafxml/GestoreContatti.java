@@ -74,7 +74,7 @@ public class GestoreContatti {
     
     @Override
     public String toString(){
-        String s = " Nome     Cognome        Numero                 Email\n";
+        String s = "";
         for(Contatto c : rubrica)
             s+=c + "\n";
         return s;

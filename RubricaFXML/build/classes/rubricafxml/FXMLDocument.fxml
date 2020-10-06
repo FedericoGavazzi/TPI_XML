@@ -43,8 +43,8 @@
       </Button>
       <TextField fx:id="nomeTxt" layoutX="131.0" layoutY="186.0" onKeyReleased="#ricercaContattoEliminazione" prefHeight="31.0" prefWidth="295.0" promptText="NOME" />
       <TextField fx:id="cognomeTxt" layoutX="130.0" layoutY="259.0" onKeyTyped="#ricercaContattoEliminazione" prefHeight="31.0" prefWidth="295.0" promptText="COGNOME" visible="false" />
-      <TextField fx:id="emailTxt" layoutX="131.0" layoutY="400.0" prefHeight="31.0" prefWidth="295.0" promptText="EMAIL" visible="false" />
       <TextField fx:id="numeroTxt" layoutX="131.0" layoutY="459.0" prefHeight="31.0" prefWidth="295.0" promptText="NUMERO DI TELEFONO" />
+      <TextField fx:id="emailTxt" layoutX="131.0" layoutY="400.0" prefHeight="31.0" prefWidth="295.0" promptText="EMAIL" visible="false" />
       <Label fx:id="addLbl" alignment="TOP_CENTER" layoutX="136.0" layoutY="50.0" prefHeight="114.0" prefWidth="263.0" style="-fx-background-color: pink;" text=" AGGIUNGI  CONTATTO" textAlignment="CENTER" textOverrun="CLIP" visible="false" wrapText="true">
          <font>
             <Font name="System Bold" size="39.0" />
@@ -60,6 +60,14 @@
             <Font size="39.0" />
          </font>
       </Label>
-      <Label fx:id="informationLbl" alignment="TOP_LEFT" layoutX="29.0" layoutY="221.0" prefHeight="227.0" prefWidth="501.0" text="Label" />
+      <ScrollPane fx:id="eliminaPane" layoutX="21.0" layoutY="221.0" prefHeight="223.0" prefWidth="521.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="827.0">
+               <children>
+                  <Label fx:id="informationLbl" alignment="TOP_LEFT" layoutX="7.0" prefHeight="555.0" prefWidth="843.0" text="Label" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
     </children>
 </AnchorPane>

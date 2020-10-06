@@ -62,6 +62,8 @@ public class FXMLDocumentController implements Initializable {
     private Label removeLbl;
     @FXML
     private Label informationLbl;
+    @FXML
+    private ScrollPane eliminaPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -86,6 +88,7 @@ public class FXMLDocumentController implements Initializable {
         informationLbl.setVisible(false);
         moinBtn.setVisible(false);
         informationLbl.setText("");
+        eliminaPane.setVisible(false);
 
     }
     //visualizza rubrica
@@ -104,7 +107,7 @@ public class FXMLDocumentController implements Initializable {
         for (TextField t : testo) {
             t.setLayoutY(y);
             t.setVisible(true);
-            y+=70;
+            y += 70;
         }
         addBtn.setVisible(true);
         backBtn.setVisible(true);
@@ -119,19 +122,29 @@ public class FXMLDocumentController implements Initializable {
         informationLbl.setVisible(true);
         moinBtn.setVisible(true);
         backBtn.setVisible(true);
+        eliminaPane.setVisible(true);
         titoloLbl.setVisible(false);
         contattiPane.setVisible(false);
         ricercaTxt.setVisible(false);
         buttonBar.setVisible(false);
         informationLbl.setText(gest.toString());
         numeroTxt.setLayoutY(459);
-        
+
     }
 
     @FXML
     private void ricercaContatto(KeyEvent event) {
-        String s = "Nome     Cognome        Numero                 Email\n";
-        for (Contatto c : gest.ricerca(ricercaTxt.getText())) {
+        String s = "";
+        String sup = "";
+        if (!ricercaTxt.getText().equals("")) {
+            String temp = ricercaTxt.getText();
+            sup = "";
+            sup = temp.substring(0, 1);
+            sup = sup.toUpperCase();
+            sup += ricercaTxt.getText().substring(1);
+        }
+
+        for (Contatto c : gest.ricerca(sup)) {
             s += c + "\n";
         }
         labelContatti.setText(s);
@@ -142,7 +155,16 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void aggiungiNuovo(ActionEvent event) {
-        gest.aggiungi(new Contatto(nomeTxt.getText(), cognomeTxt.getText(), numeroTxt.getText(), emailTxt.getText()));
+        String sup[] = new String[2];
+        for (int i = 0; i < 2; i++) {
+            if (!testo[i].getText().equals("")) {
+                String temp = testo[i].getText();
+                sup[i] = temp.substring(0, 1);
+                sup[i] = sup[i].toUpperCase();
+                sup[i] += testo[i].getText().substring(1);
+            }
+        }
+        gest.aggiungi(new Contatto(sup[0], sup[1], numeroTxt.getText(), emailTxt.getText()));
         nomeTxt.clear();
         cognomeTxt.clear();
         numeroTxt.clear();
@@ -176,6 +198,7 @@ public class FXMLDocumentController implements Initializable {
         informationLbl.setVisible(false);
         removeLbl.setVisible(false);
         moinBtn.setVisible(false);
+        eliminaPane.setVisible(false);
     }
 
     @FXML
@@ -189,6 +212,7 @@ public class FXMLDocumentController implements Initializable {
         ricercaTxt.setVisible(true);
         buttonBar.setVisible(true);
         removeLbl.setVisible(false);
+        eliminaPane.setVisible(false);
         for (TextField t : testo) {
             t.setVisible(false);
         }
@@ -196,12 +220,12 @@ public class FXMLDocumentController implements Initializable {
         moinBtn.setVisible(false);
         informationLbl.setVisible(false);
         Scrittore.scrivi(gest.getRubrica(), "rubrica.xml");
-        
+
     }
 
     @FXML
     private void ricercaContattoEliminazione(KeyEvent event) {
-        String s = "Nome     Cognome        Numero                 Email\n";
+        String s = "";
         for (Contatto c : gest.ricerca(nomeTxt.getText())) {
             s += c + "\n";
         }
@@ -209,7 +233,6 @@ public class FXMLDocumentController implements Initializable {
         if (nomeTxt.getText().length() == 0) {
             informationLbl.setText(gest.toString());
         }
-        
-        
+
     }
 }

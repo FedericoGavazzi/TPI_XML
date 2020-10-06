@@ -60,6 +60,14 @@
             <Font size="39.0" />
          </font>
       </Label>
-      <Label fx:id="informationLbl" alignment="TOP_LEFT" layoutX="29.0" layoutY="221.0" prefHeight="227.0" prefWidth="501.0" text="Label" />
+      <ScrollPane fx:id="eliminaPane" layoutX="21.0" layoutY="221.0" prefHeight="223.0" prefWidth="521.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="827.0">
+               <children>
+                  <Label fx:id="informationLbl" alignment="TOP_LEFT" layoutX="7.0" prefHeight="555.0" prefWidth="843.0" text="Label" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
     </children>
 </AnchorPane>

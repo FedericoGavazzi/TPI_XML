@@ -40,12 +40,18 @@ public class Contatto {
     }
     
     public boolean nomeUguale(String nome){
-        return this.nome.equalsIgnoreCase(nome) || this.nome.contains(nome);
+        String temp = nome;
+        if(temp.length() == 1)
+            temp = temp.toUpperCase();
+        return this.nome.equalsIgnoreCase(nome) || this.nome.contains(nome) || this.nome.contains(temp);
             
     }
     
     public boolean cognomeUguale(String cognome){
-        return this.cognome.equalsIgnoreCase(cognome) || this.cognome.contains(cognome);
+        String temp = cognome;
+        if(temp.length() == 1)
+            temp = temp.toUpperCase();
+        return this.cognome.equalsIgnoreCase(cognome) || this.cognome.contains(cognome) || this.cognome.contains(temp);
     }
     
     public boolean numeroUguale (String numero){
@@ -54,7 +60,7 @@ public class Contatto {
 
     @Override
     public String toString() {
-        return " " + nome + "    " + cognome + "     " + numero_telefono + "     " + email;
+        return "Nome:  " + nome + "      Cognome:  " + cognome + "        Numero:  " + numero_telefono + "       Email:  " + email;
     }
     
     
